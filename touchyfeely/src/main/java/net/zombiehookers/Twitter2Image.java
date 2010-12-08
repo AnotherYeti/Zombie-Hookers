@@ -20,7 +20,7 @@ public class Twitter2Image {
 	}
 
 	public void updateTweets(double lat, double lng, double radius) {
-		GeoLocation g = new GeoLocations(lat, long);
+		GeoLocation g = new GeoLocations(lat, lng);
 		Geocode query = new Geocode();
 		query.setGeoCode(g, radius, Query.MILES);
 		
