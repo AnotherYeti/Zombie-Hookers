@@ -6,6 +6,8 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class Twitter2Image {
@@ -33,10 +35,13 @@ public class Twitter2Image {
 		} catch (TwitterException e) {
 		}
 	}
-	String filename = "mood_overlay.jpg";
+	File filename = new File("mood_overlay.jpg");
 	private BufferedImage image;
 	private double array[][];
 	private Color clear = new Color(0,0,0,0);
+
+	private int w = 250;
+	private int h = 600;
 	
 	public void set(int i, int j, Color c)
 	{
@@ -63,7 +68,10 @@ public class Twitter2Image {
 			if (mood == 0){set(temp_X, temp_Y, Color.blue);}
 			else{set(temp_X, temp_Y, Color.red);}
 		}
-		ImageIO.write(image,"jpg",filename);
+		try {
+			ImageIO.write(image,"jpg",filename);
+		} catch ( IOException e) {
+		}
 	}
 
 	//public static void main(String[] args)
