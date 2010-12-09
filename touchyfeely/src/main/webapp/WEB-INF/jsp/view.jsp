@@ -25,9 +25,6 @@ var markersArray = [];
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), 
 						myOptions);
-	for(i in "${input}") {
-		addMarker(new google.maps.LatLng(${input[i].lat},${input[i].lon}),${input[i].image});
-	}
 }
 function addMarker(where,image) {
 	marker = new google.maps.Marker({
