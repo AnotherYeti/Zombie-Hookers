@@ -50,9 +50,10 @@ public class Data2Image
 		}
 	}
 
-	public void Creator()
+	public void Creator(double lat, double lng, double radius)
 	{
 		Twitter2Image tweet = new Twitter2Image();
+		tweet.updateTweets(lat, lng, radius);
 		emoxels = tweet.getTweets();
 		Process();
 	}
