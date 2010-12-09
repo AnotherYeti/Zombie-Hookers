@@ -11,7 +11,7 @@ import net.zombiehookers.Twitter2Image;
 public class Data2Image
 {
 
-	File filename = new File("mood_overlay.png");
+	File filename = new File("src/main/webapp/mood_overlay.png");
 	private BufferedImage image;
 	private double array[][];
 	private Color clear = new Color(0,0,0,0);
@@ -39,8 +39,11 @@ public class Data2Image
 			double mood = emoxels.get(a).e;
 			double X = emoxels.get(a).lat;
 			double Y = emoxels.get(a).lng;
-			int temp_X = (int)(100*(X-25));
-			int temp_Y = (int)(100*(Y+125));
+			System.out.println("Mood: " + mood);
+			System.out.println("X: " + X);
+			System.out.println("Y: " + Y);
+			int temp_X = (int)(100.0*(X-25.0));
+			int temp_Y = (int)(100.0*(Y+125.0));
 			if (mood == 0){set(temp_X, temp_Y, Color.blue);}
 			else{set(temp_X, temp_Y, Color.red);}
 		}
