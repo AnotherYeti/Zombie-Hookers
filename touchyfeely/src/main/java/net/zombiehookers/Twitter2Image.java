@@ -1,12 +1,14 @@
 package net.zombiehookers;
 
+import twitter4j.*;
 import twitter4j.api.*;
 import java.util.List;
+import twitter4j.GeoLocation;
 
 
 public class Twitter2Image {
 	
-	private List<TweetMood> tweets;
+	private List<Tweet> tweets;
 	private TwitterFactory tf;
 	private Twitter t;
 
@@ -15,15 +17,18 @@ public class Twitter2Image {
 		t = tf.getInstance();
 	}
 
-	public List<TweetMood> getTweets() {
+	public List<Tweet> getTweets() {
 		return tweets;
 	}
 
 	public void updateTweets(double lat, double lng, double radius) {
-		GeoLocation g = new GeoLocations(lat, long);
-		Geocode query = new Geocode();
+		GeoLocation g = new GeoLocation(lat, lng);
+		Query query = new Query();
 		query.setGeoCode(g, radius, Query.MILES);
-		
-		tweets = t.search(query).getTweets();
+	
+		try {	
+			tweets = t.search(query).getTweets();
+		} catch (TwitterException e) {
+		}
 	}
 }
