@@ -17,7 +17,7 @@ src="http://maps.google.com/maps/api/js?sensor=false"></script>
 var map;
 var markersArray = [];
  function initialize() {
-    var myLatlng = new google.maps.LatLng(40.015,-105.2);
+    var myLatlng = new google.maps.LatLng(40.320726,-98.48877);
     var myOptions = {
       zoom: 5,
       center: myLatlng,
@@ -25,7 +25,7 @@ var markersArray = [];
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), 
 						myOptions);
-    addMarker(myLatlng,"mood_overlay.png");
+    addMarker(new google.maps.LatLng(27.698,-98.48877),"mood_overlay.png");
 }
 function addMarker(where,image) {
 	marker = new google.maps.Marker({
