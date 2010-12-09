@@ -11,7 +11,7 @@ import net.zombiehookers.Twitter2Image;
 public class Data2Image
 {
 
-	File filename = new File("mood_overlay.jpg");
+	File filename = new File("mood_overlay.png");
 	private BufferedImage image;
 	private double array[][];
 	private Color clear = new Color(0,0,0,0);
@@ -45,7 +45,7 @@ public class Data2Image
 			else{set(temp_X, temp_Y, Color.red);}
 		}
 		try {
-			ImageIO.write(image,"jpg",filename);
+			ImageIO.write(image,"png",filename);
 		} catch ( IOException e) {
 		}
 	}
