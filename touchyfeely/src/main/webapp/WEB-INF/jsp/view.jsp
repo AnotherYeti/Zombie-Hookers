@@ -25,6 +25,7 @@ var markersArray = [];
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), 
 						myOptions);
+    addMarker(myLatlng,"../../../java/net/zombiehookers/mood_overlay.jpg");
 }
 function addMarker(where,image) {
 	marker = new google.maps.Marker({
