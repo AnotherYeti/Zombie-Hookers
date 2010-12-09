@@ -16,8 +16,8 @@ public class Data2Image
 	private double array[][];
 	private Color clear = new Color(0,0,0,0);
 	private List<Emoxel> emoxels;
-	private int w = 250;
-	private int h = 600;
+	private int h = 250;
+	private int w = 600;
 	
 	public void set(int i, int j, Color c)
 	{
@@ -26,7 +26,7 @@ public class Data2Image
 	
 	public void Process()
 	{
-        	image = new BufferedImage(250, 600, BufferedImage.TYPE_INT_ARGB);
+        	image = new BufferedImage(6000, 2500, BufferedImage.TYPE_INT_ARGB);
 		for (int a = 0; a < w-1; a ++)
 		{
 			for (int b = 0; b < h-1; b ++)
@@ -39,8 +39,8 @@ public class Data2Image
 			double mood = emoxels.get(a).e;
 			double X = emoxels.get(a).lat;
 			double Y = emoxels.get(a).lng;
-			int temp_X = (int)(10*(X-25));
-			int temp_Y = (int)(10*(Y+125));
+			int temp_X = (int)(100*(X-25));
+			int temp_Y = (int)(100*(Y+125));
 			if (mood == 0){set(temp_X, temp_Y, Color.blue);}
 			else{set(temp_X, temp_Y, Color.red);}
 		}
