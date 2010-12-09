@@ -36,10 +36,14 @@ public class Twitter2Image {
 		for(int i = 0; i < tweets.size(); i++)
 		{
 			Emoxel e = new Emoxel();
-			e.lat = tweets.get(i).getGeoLocation().getLatitude();
-			e.lng = tweets.get(i).getGeoLocation().getLongitude();
-			e.e = 1.0f;
-			emoxels.add(e);
+			GeoLocation geo = tweets.get(i).getGeoLocation();
+			if(geo != null)
+			{
+					e.lat = geo.getLatitude();
+					e.lng = geo.getLongitude();
+					e.e = 1.0f;
+					emoxels.add(e);
+			}
 		}
 	}
 }
