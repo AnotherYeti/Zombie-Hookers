@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -38,5 +38,10 @@ function addMarker(where,image) {
 </head>
 <body onload="initialize()">
   <div id="map_canvas"></div>
+  <c:forEach var="point" items="${input}">
+  <script type="test/javascript">
+	addMarker(new google.maps.LatLng(${input.lat},${input.lon},${input.image});
+  </script>
+  </c:forEach>
 </body>
 </html>
