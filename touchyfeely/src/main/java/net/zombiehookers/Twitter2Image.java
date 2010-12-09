@@ -2,16 +2,8 @@ package net.zombiehookers;
 
 import twitter4j.*;
 import twitter4j.api.*;
+import java.util.ArrayList;
 import java.util.List;
-import javax.imageio.ImageIO;
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-public class Emoxel {
-	public double lat,lng,e;
-}
 
 public class Twitter2Image {
 	
@@ -22,6 +14,7 @@ public class Twitter2Image {
 	public Twitter2Image() {
 		tf = new TwitterFactory();
 		t = tf.getInstance();
+		emoxels = new ArrayList<Emoxel>();	
 	}
 
 	public List<Emoxel> getTweets() {
@@ -37,14 +30,16 @@ public class Twitter2Image {
 		try {	
 			tweets = t.search(query).getTweets();
 		} catch (TwitterException e) {
+			tweets = new ArrayList<Tweet>();
 		}
 
-		for(i = 0; i < tweets.size(); i++)
+		for(int i = 0; i < tweets.size(); i++)
 		{
 			Emoxel e = new Emoxel();
-			e.lat = tweets.get(i).getGeolocation().getLatitude();
-			e.lng = tweets.get(i).getGeolocation().getLongitude();
+			e.lat = tweets.get(i).getGeoLocation().getLatitude();
+			e.lng = tweets.get(i).getGeoLocation().getLongitude();
 			e.e = 1.0f;
+			emoxels.add(e);
 		}
 	}
 }
