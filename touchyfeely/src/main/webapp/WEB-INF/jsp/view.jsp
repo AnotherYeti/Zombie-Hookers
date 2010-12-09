@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -25,6 +25,7 @@ var markersArray = [];
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), 
 						myOptions);
+    addMarker(myLatlng,"../../../java/net/zombiehookers/mood_overlay.jpg");
 }
 function addMarker(where,image) {
 	marker = new google.maps.Marker({
@@ -38,5 +39,10 @@ function addMarker(where,image) {
 </head>
 <body onload="initialize()">
   <div id="map_canvas"></div>
+  <c:forEach var="point" items="${input}">
+  <script type="test/javascript">
+	addMarker(new google.maps.LatLng(${input.lat},${input.lon},${input.image});
+  </script>
+  </c:forEach>
 </body>
 </html>

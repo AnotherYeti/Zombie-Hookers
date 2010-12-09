@@ -15,7 +15,7 @@ public class Data2Image
 	private BufferedImage image;
 	private double array[][];
 	private Color clear = new Color(0,0,0,0);
-
+	private List<Emoxel> emoxels;
 	private int w = 250;
 	private int h = 600;
 	
@@ -34,11 +34,11 @@ public class Data2Image
 				image.setRGB(a, b, clear.getRGB());
 			}
 		}	
-		for (int a = 0; a < array.length-1; a ++)
+		for (int a = 0; a < emoxels.size(); a ++)
 		{
-			double mood = array[a][0];
-			double X = array[a][1];
-			double Y = array[a][2];
+			double mood = emoxels.get(a).e;
+			double X = emoxels.get(a).lat;
+			double Y = emoxels.get(a).lng;
 			int temp_X = (int)(10*(X-25));
 			int temp_Y = (int)(10*(Y+125));
 			if (mood == 0){set(temp_X, temp_Y, Color.blue);}
@@ -50,6 +50,13 @@ public class Data2Image
 		}
 	}
 
+	public void Creator(double lat, double lng, double radius)
+	{
+		Twitter2Image tweet = new Twitter2Image();
+		tweet.updateTweets(lat, lng, radius);
+		emoxels = tweet.getTweets();
+		Process();
+	}
 	//public static void main(String[] args)
 	//{
 	//	Picture pic = new Picture(250, 600);
