@@ -6,7 +6,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import net.zombiehookers.Twitter2Image;
 
 public class Data2Image
 {
