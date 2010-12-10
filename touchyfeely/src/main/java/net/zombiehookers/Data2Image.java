@@ -26,16 +26,21 @@ public class Data2Image
 	public void Process()
 	{
         	image = new BufferedImage(1440, 600, BufferedImage.TYPE_INT_ARGB);
-//		for (int a = 0; a < 50; a ++)
-		for (int a = 0; a < emoxels.size(); a ++)
+		for (int a = 0; a < 100; a ++)
+//		for (int a = 0; a < emoxels.size(); a ++)
 		{
-			double mood = emoxels.get(a).e;
-			double X = emoxels.get(a).lat;
-			double Y = emoxels.get(a).lng;
+//			double mood = emoxels.get(a).e;
+//			double X = emoxels.get(a).lat;
+//			double Y = emoxels.get(a).lng;
 			
-			int temp_X = (int)(24.0*(X-25.0));
-			int temp_Y = 25-(int)(24.0*(Y+125.0));
-			set(temp_X, temp_Y, Color.blue);
+//			int temp_X = (int)(24.0*(X-25.0));
+//			int temp_Y = 25-(int)(24.0*(Y+125.0));
+//			set(temp_X, temp_Y, Color.blue);
+			set(a, a, Color.black);
+			set(1439-a, a, Color.black);
+			set(1439-a, 599-a, Color.black);
+			set(a, 599-a, Color.black);
+
 		}
 		try {
 			ImageIO.write(image,"png",filename);
