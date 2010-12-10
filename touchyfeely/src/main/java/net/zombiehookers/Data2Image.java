@@ -13,10 +13,9 @@ public class Data2Image
 
 	File filename = new File("src/main/webapp/mood_overlay.png");
 	private BufferedImage image;
-	private double array[][];
 	private Color clear = new Color(0,0,0,0);
 	private List<Emoxel> emoxels;
-	private int h = 250;
+	private int h = 1440;
 	private int w = 600;
 	
 	public void set(int i, int j, Color c)
@@ -26,26 +25,17 @@ public class Data2Image
 	
 	public void Process()
 	{
-        	image = new BufferedImage(6000, 2500, BufferedImage.TYPE_INT_ARGB);
-		for (int a = 0; a < w-1; a ++)
-		{
-			for (int b = 0; b < h-1; b ++)
-			{
-				image.setRGB(a, b, clear.getRGB());
-			}
-		}	
+        	image = new BufferedImage(1440, 600, BufferedImage.TYPE_INT_ARGB);
+//		for (int a = 0; a < 50; a ++)
 		for (int a = 0; a < emoxels.size(); a ++)
 		{
 			double mood = emoxels.get(a).e;
 			double X = emoxels.get(a).lat;
 			double Y = emoxels.get(a).lng;
-			System.out.println("Mood: " + mood);
-			System.out.println("X: " + X);
-			System.out.println("Y: " + Y);
-			int temp_X = (int)(100.0*(X-25.0));
-			int temp_Y = (int)(100.0*(Y+125.0));
-			if (mood == 0){set(temp_X, temp_Y, Color.blue);}
-			else{set(temp_X, temp_Y, Color.red);}
+			
+			int temp_X = (int)(24.0*(X-25.0));
+			int temp_Y = 25-(int)(24.0*(Y+125.0));
+			set(temp_X, temp_Y, Color.blue);
 		}
 		try {
 			ImageIO.write(image,"png",filename);
