@@ -26,6 +26,8 @@ var markersArray = [];
     map = new google.maps.Map(document.getElementById("map_canvas"), 
 						myOptions);
     addMarker(new google.maps.LatLng(27.698,-98.48877),"mood_overlay.png");
+    addMarker(new google.maps.LatLng(30,-94),"http://www.google.com/ig/images/weather/cloudy.gif");
+    addMarker(new google.maps.LatLng(42,-103),"http://www.google.com/ig/images/weather/sunny.gif");	
 }
 function addMarker(where,image) {
 	marker = new google.maps.Marker({
